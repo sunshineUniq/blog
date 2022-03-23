@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vscode插件开发-webview | Welcome to summerUniq Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1- 创建webview123456789101112131415161718192021import * as vscode from &amp;#x27;vscode&amp;#x27;;function testWebview(context: vscode.ExtensionContext): void &amp;#123;  context.subscriptions.push(    vscode.comma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode插件开发-webview">
+<meta property="og:url" content="https://summeruniq.github.io/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-webview/index.html">
+<meta property="og:site_name" content="Welcome to summerUniq Blog">
+<meta property="og:description" content="1- 创建webview123456789101112131415161718192021import * as vscode from &amp;#x27;vscode&amp;#x27;;function testWebview(context: vscode.ExtensionContext): void &amp;#123;  context.subscriptions.push(    vscode.comma">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-21T06:18:36.000Z">
+<meta property="article:modified_time" content="2022-01-24T03:12:11.797Z">
+<meta property="article:author" content="Summer Xia">
+<meta property="article:tag" content="vscode, extensions, webview">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Welcome to summerUniq Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Welcome to summerUniq Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://summerUniq.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vscode插件开发-webview" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-webview/" class="article-date">
+  <time datetime="2022-01-21T06:18:36.000Z" itemprop="datePublished">2022-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vscode插件开发-webview
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-创建webview"><a href="#1-创建webview" class="headerlink" title="1- 创建webview"></a>1- 创建webview</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import * as vscode from &#x27;vscode&#x27;;</span><br><span class="line"></span><br><span class="line">function testWebview(context: vscode.ExtensionContext): void &#123;</span><br><span class="line">  context.subscriptions.push(</span><br><span class="line">    vscode.commands.registerCommand(&#x27;extension.demo.openWebview&#x27;, (uri) =&gt; &#123;</span><br><span class="line">      console.log(&#x27;uri&#x27;, uri);</span><br><span class="line">      const panel = vscode.window.createWebviewPanel(</span><br><span class="line">        &#x27;testWebview&#x27;,</span><br><span class="line">        &#x27;Webview test&#x27;,</span><br><span class="line">        vscode.ViewColumn.One,</span><br><span class="line">        &#123;</span><br><span class="line">          enableScripts: true,</span><br><span class="line">          retainContextWhenHidden: true,</span><br><span class="line">        &#125;,</span><br><span class="line">      );</span><br><span class="line">      panel.webview.html = `&lt;html&gt;&lt;body&gt;你好，我是webview&lt;/body&gt;&lt;/html&gt;`;</span><br><span class="line">    &#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default testWebview;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>声明命令</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;activationEvents&quot;</span>: [</span><br><span class="line">			<span class="string">&quot;onCommand:extension.demo.openWebview&quot;</span></span><br><span class="line">],</span><br><span class="line">	<span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">	<span class="attr">&quot;commands&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.demo.openWebview&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;title&quot;</span>: <span class="string">&quot;OPEN WEBVIEW&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	<span class="attr">&quot;menus&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;editor/context&quot;</span>: [</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.demo.openWebview&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">		],</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-加载本地资源"><a href="#2-加载本地资源" class="headerlink" title="2- 加载本地资源"></a>2- 加载本地资源</h1><p>出于安全考虑，Webview默认无法直接访问本地资源，它在一个孤立的上下文中运行，想要加载本地图片、js、css等必须通过特殊的<code>vscode-resource:</code>协议，网页里面<strong>所有的静态资源都要转换成这种格式，否则无法被正常加载</strong>。</p>
+<p><code>vscode-resource:</code>协议类似于<code>file:</code>协议，但它只允许访问特定的本地文件。和<code>file:</code>一样，<code>vscode-resource:</code>从磁盘加载绝对路径的资源。</p>
+<p>转换本地磁盘文件路径成webview 能打开的文件路径</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getExtensionFileVscodeResource: <span class="function"><span class="keyword">function</span>(<span class="params">context, relativePath</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> diskPath = vscode.Uri.file(path.join(context.extensionPath, relativePath));</span><br><span class="line">	<span class="keyword">return</span> diskPath.with(&#123; <span class="attr">scheme</span>: <span class="string">&#x27;vscode-resource&#x27;</span> &#125;).toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，<code>vscode-resource:</code>只能访问以下位置中的资源：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 扩展程序安装目录中的文件。</span><br><span class="line">- 用户当前活动的工作区内。</span><br><span class="line">- 当然，你还可以使用dataURI直接在Webview中嵌入资源，这种方式没有限制；</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-从文件加载HTML内容"><a href="#3-从文件加载HTML内容" class="headerlink" title="3- 从文件加载HTML内容"></a>3- 从文件加载HTML内容</h1><p>默认不支持从文件加载HTML，需要自己封装代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">getWebviewContent(</span><br><span class="line">  context: vscode.ExtensionContext,</span><br><span class="line">  <span class="attr">templatePath</span>: string,</span><br><span class="line">): string &#123;</span><br><span class="line">  <span class="keyword">const</span> resourcePath = path.join(context.extensionPath, templatePath);</span><br><span class="line">  <span class="keyword">const</span> dirPath = path.dirname(resourcePath);</span><br><span class="line">  <span class="keyword">let</span> html = fs.readFileSync(resourcePath, <span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">  <span class="comment">// 处理html内部的资源路径成可以被vscode webview 访问的路径</span></span><br><span class="line">  html = html.replace(</span><br><span class="line">    <span class="regexp">/(&lt;link.+?href=&quot;|&lt;script.+?src=&quot;|&lt;img.+?src=&quot;)(.+?)&quot;/g</span>,</span><br><span class="line">    <span class="function">(<span class="params">m, $<span class="number">1</span>, $<span class="number">2</span></span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> $<span class="number">1</span> + vscode.Uri.file(path.resolve(dirPath, $<span class="number">2</span>)).with(</span><br><span class="line">        &#123; <span class="attr">scheme</span>: <span class="string">&#x27;vscode-resource&#x27;</span> &#125;).toString();</span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="keyword">return</span> html;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-消息通信"><a href="#4-消息通信" class="headerlink" title="4- 消息通信"></a>4- 消息通信</h1><p>重头戏来了，<code>Webview</code>和普通网页非常类似，不能直接调用任何<code>VSCode</code>API，但是，它唯一特别之处就在于多了一个名叫<code>acquireVsCodeApi</code>的方法，执行这个方法会返回一个超级阉割版的<code>vscode</code>对象，这个对象里面有且仅有如下3个可以和插件通信的API：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- getState</span><br><span class="line">- postMessage</span><br><span class="line">- setState</span><br></pre></td></tr></table></figure>
+
+<p>插件给<code>Webview</code>发送消息: 支持发送任意可以被<code>JSON</code>化的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">panel.webview.postMessage(&#123;text: &quot;hello&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>webview 端接收</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&#x27;message&#x27;, event =&gt; &#123;</span><br><span class="line">	const message = event.data;</span><br><span class="line">	console.log(&#x27;Webview接收到的消息：&#x27;, message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Webview</code>主动发送消息给插件：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vscode.postMessage(&#123;text: &#x27;你好，我是Webview啊！&#x27;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>插件接收：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">panel.webview.onDidReceiveMessage(message =&gt; &#123;</span><br><span class="line">	console.log(&#x27;插件收到的消息：&#x27;, message);</span><br><span class="line">&#125;, undefined, context.subscriptions);</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-封装通信"><a href="#5-封装通信" class="headerlink" title="5- 封装通信"></a>5- 封装通信</h1><h1 id="6-主题适配"><a href="#6-主题适配" class="headerlink" title="6- 主题适配"></a>6- 主题适配</h1><p><code>Webview</code>可以根据<code>VS Code</code>的当前主题更改其外观，原理是body上面添加当前主题名称，主要有以下三种：</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vscode-light - 浅色主题；</span><br><span class="line">vscode-dark -深色主题；</span><br><span class="line">vscode-high-contrast - 高对比度主题;</span><br></pre></td></tr></table></figure>
+
+<p>可以通过自己写样式来适配不同主题：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 浅色主题 */</span></span><br><span class="line"><span class="selector-class">.body</span><span class="selector-class">.vscode-light</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: white;</span><br><span class="line">	<span class="attribute">color</span>: black;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 深色主题 */</span></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.vscode-dark</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#252526</span>;</span><br><span class="line">	<span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 高对比度主题 */</span></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.vscode-high-contrast</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: white;</span><br><span class="line">	<span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="7-生命周期"><a href="#7-生命周期" class="headerlink" title="7- 生命周期"></a>7- 生命周期</h1><p><code>webview</code>由创建它的扩展程序所有，返回的<code>panel</code>对象你必须自己保存，如果你的扩展程序丢失了这个引用，那么将无法再次重新访问该<code>webview</code>，即使Web视图继续显示在<code>vscode</code>中。</p>
+<p>用户也可以随时关闭<code>webview</code>面板。当用户关闭webview面板时，webview本身将被销毁，此时不能再使用panel引用，否则将会出现异常，可以通过监听<code>onDidDispose</code>事件在这里面做一些销毁操作。</p>
+<p>可以通过<code>panel.dispose()</code>方法主动关闭webview。</p>
+<h1 id="8-状态保持"><a href="#8-状态保持" class="headerlink" title="8- 状态保持"></a>8- 状态保持</h1><p>当webview移动到后台又再次显示时，webview中的任何状态都将丢失。</p>
+<p>解决此问题的最佳方法是使你的webview无状态，通过消息传递来保存webview的状态。</p>
+<h2 id="8-1-state"><a href="#8-1-state" class="headerlink" title="8.1- state"></a>8.1- state</h2><p>在webview的js中我们可以使用<code>vscode.getState()</code>和<code>vscode.setState()</code>方法来保存和恢复JSON可序列化状态对象。当webview被隐藏时，即使webview内容本身被破坏，这些状态仍然会保存。当然了，当webview被销毁时，状态将被销毁。</p>
+<h2 id="8-2-序列化"><a href="#8-2-序列化" class="headerlink" title="8.2 序列化"></a>8.2 序列化</h2><p>通过注册<code>WebviewPanelSerializer</code>可以实现在<code>VScode</code>重启后自动恢复你的<code>webview</code>，当然，序列化其实也是建立在<code>getState</code>和<code>setState</code>之上的。</p>
+<p>注册方法：<code>vscode.window.registerWebviewPanelSerializer</code></p>
+<h2 id="8-3-retainContextWhenHidden"><a href="#8-3-retainContextWhenHidden" class="headerlink" title="8.3- retainContextWhenHidden"></a>8.3- retainContextWhenHidden</h2><p>对于具有非常复杂的UI或状态且无法快速保存和恢复的<code>webview</code>，我们可以直接使用<code>retainContextWhenHidden</code>选项。设置<code>retainContextWhenHidden: true</code>后即使webview被隐藏到后台其状态也不会丢失。</p>
+<p>尽管<code>retainContextWhenHidden</code>很有吸引力，但它需要很高的内存开销，一般建议在实在没办法的时候才启用。<br><code>getState</code>和<code>setState</code>是持久化的首选方式，因为它们的性能开销要比<code>retainContextWhenHidden</code>低得多。</p>
+<h1 id="9-API"><a href="#9-API" class="headerlink" title="9- API"></a>9- API</h1><table>
+<thead>
+<tr>
+<th align="left">Guide on VS Code Website</th>
+<th align="left">API &amp; Contribution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/command">Command</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#commands">commands</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/color-theme">Color Theme</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.themes">contributes.themes</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/file-icon-theme">File Icon Theme</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.iconThemes">contributes.iconThemes</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/product-icon-theme">Product Icon Theme</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.productIconThemes">contributes.productIconThemes</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/tree-view">Tree View</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.createTreeView">window.createTreeView</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.registerTreeDataProvider">window.registerTreeDataProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TreeView">TreeView</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TreeDataProvider">TreeDataProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.views">contributes.views</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers">contributes.viewsContainers</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/webview">Webview</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.createWebviewPanel">window.createWebviewPanel</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.registerWebviewPanelSerializer">window.registerWebviewPanelSerializer</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/custom-editors">Custom Editors</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.registerCustomEditorProvider">window.registerCustomEditorProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#CustomTextEditorProvider">CustomTextEditorProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.customEditors">contributes.customEditors</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/virtual-documents">Virtual Documents</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.registerTextDocumentContentProvider">workspace.registerTextDocumentContentProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#commands.registerCommand">commands.registerCommand</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.showInputBox">window.showInputBox</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/virtual-workspaces">Virtual Workspaces</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.fs">workspace.fs</a> capabilities.virtualWorkspaces</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/workspace-trust">Workspace Trust</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.isTrusted">workspace.isTrusted</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.onDidGrantWorkspaceTrust">workspace.onDidGrantWorkspaceTrust</a> capabilities.untrustedWorkspaces</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/task-provider">Task Provider</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#tasks.registerTaskProvider">tasks.registerTaskProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#Task">Task</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#ShellExecution">ShellExecution</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.taskDefinitions">contributes.taskDefinitions</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/scm-provider">Source Control</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.workspaceFolders">workspace.workspaceFolders</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#SourceControl">SourceControl</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#SourceControlResourceGroup">SourceControlResourceGroup</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#scm.createSourceControl">scm.createSourceControl</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TextDocumentContentProvider">TextDocumentContentProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.menus">contributes.menus</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/debugger-extension">Debugger Extension</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.breakpoints">contributes.breakpoints</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.debuggers">contributes.debuggers</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#debug">debug</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/markdown-extension">Markdown Extension</a></td>
+<td align="left">markdown.previewStyles markdown.markdownItPlugins markdown.previewScripts</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/testing">Test Extension</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TestController">TestController</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TestItem">TestItem</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/custom-data-extension">Custom Data Extension</a></td>
+<td align="left">contributes.html.customData contributes.css.customData</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-webview/" data-id="ckys47naz0001c9wo23sp2k25" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode-extensions-webview/" rel="tag">vscode, extensions, webview</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/10/vs-extension-tree-view/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vs-extension: tree-view
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E6%89%93%E5%8C%85%E3%80%81%E5%8F%91%E5%B8%83%E3%80%81%E5%8D%87%E7%BA%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vscode插件打包、发布、升级</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RESTful-%E6%9E%B6%E6%9E%84/" rel="tag">RESTful, 架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class-extends-and-implements/" rel="tag">class, extends and implements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-hexo/" rel="tag">git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viscose-extension-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%AE%9A%E4%B9%89-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E6%82%AC%E5%81%9C%E6%8F%90%E7%A4%BA/" rel="tag">viscose, extension, 跳转到定义, 自动补全, 悬停提示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-extension/" rel="tag">vs-extension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode-extensions-publish-package/" rel="tag">vscode, extensions, publish, package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode-extensions-webview/" rel="tag">vscode, extensions, webview</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/RESTful-%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">RESTful, 架构</a> <a href="/tags/class-extends-and-implements/" style="font-size: 10px;">class, extends and implements</a> <a href="/tags/git-hexo/" style="font-size: 10px;">git, hexo</a> <a href="/tags/viscose-extension-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%AE%9A%E4%B9%89-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E6%82%AC%E5%81%9C%E6%8F%90%E7%A4%BA/" style="font-size: 10px;">viscose, extension, 跳转到定义, 自动补全, 悬停提示</a> <a href="/tags/vs-extension/" style="font-size: 10px;">vs-extension</a> <a href="/tags/vscode-extensions-publish-package/" style="font-size: 10px;">vscode, extensions, publish, package</a> <a href="/tags/vscode-extensions-webview/" style="font-size: 10px;">vscode, extensions, webview</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/23/RESTful-%E6%9E%B6%E6%9E%84/">RESTful 架构</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/class-extends-and-implements-%E7%9A%84%E5%8C%BA%E5%88%AB/">class extends and implements 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/vs-extension-tree-view/">vs-extension: tree-view</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-webview/">vscode插件开发-webview</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E6%89%93%E5%8C%85%E3%80%81%E5%8F%91%E5%B8%83%E3%80%81%E5%8D%87%E7%BA%A7/">vscode插件打包、发布、升级</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Summer Xia<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

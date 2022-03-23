@@ -66,6 +66,600 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-RESTful-架构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/23/RESTful-%E6%9E%B6%E6%9E%84/" class="article-date">
+  <time datetime="2022-03-23T03:08:15.000Z" itemprop="datePublished">2022-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/23/RESTful-%E6%9E%B6%E6%9E%84/">RESTful 架构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h2><p>Representational State Transfer</p>
+<ul>
+<li>资源（Resources): 信息实体， 每个资源有独一无二的标识符URI， 可以通过URI（统一资源定位符）访问资源</li>
+<li>表现层（Representation): 资源表现出来的形式， exp: text, html, xml, png等这个不同的文件类型都是资源的表现形式<br>我们在请求资源的时候通常会通过http请求，<code>http://xxx.com/xx/xxx.html</code>， 这边的后缀是可以省略的，真正决定资源表现形式的是http请求头里的<br><code>Accept</code> 和 <code>Content-Type</code>字段</li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>RESTFUL特点包括：<br>1、每一个URI代表1种资源；<br>2、客户端使用GET、POST、PUT、DELETE4个表示操作方式的动词对服务端资源进行操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源；<br>3、通过操作资源的表现形式来操作资源；<br>4、资源的表现形式是XML或者HTML；<br>5、客户端与服务端之间的交互在请求之间是无状态的，从客户端到服务端的每个请求都必须包含理解请求所必需的信息。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>RESTful 架构简单理解就是对Http传输URI的一种规范<br>RESTful架构是对MVC架构改进后所形成的一种架构，通过使用事先定义好的接口与不同的服务联系起来。在RESTful架构中，浏览器使用POST，DELETE，PUT和GET四种请求方式分别对指定的URL资源进行增删改查操作。因此，RESTful是通过URI实现对资源的管理及访问，具有扩展性强、结构清晰的特点。</p>
+<p>RESTful架构将服务器分成前端服务器和后端服务器两部分，前端服务器为用户提供无模型的视图；后端服务器为前端服务器提供接口。浏览器向前端服务器请求视图，通过视图中包含的AJAX函数发起接口请求获取模型。</p>
+<p>项目开发引入RESTful架构，利于团队并行开发。在RESTful架构中，将多数HTTP请求转移到前端服务器上，降低服务器的负荷，使视图获取后端模型失败也能呈现。但RESTful架构却不适用于所有的项目，当项目比较小时无需使用RESTful架构，项目变得更加复杂。</p>
+<p><img src="../../public/css/images/RESTful%E6%9E%B6%E6%9E%84.jpeg" alt="RESTful架构"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/03/23/RESTful-%E6%9E%B6%E6%9E%84/" data-id="cl130nx61000024gsdu8bb8sa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RESTful-%E6%9E%B6%E6%9E%84/" rel="tag">RESTful, 架构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-class-extends-and-implements-的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/10/class-extends-and-implements-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2022-03-10T02:59:41.000Z" itemprop="datePublished">2022-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/10/class-extends-and-implements-%E7%9A%84%E5%8C%BA%E5%88%AB/">class extends and implements 的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>extends: es6中的关键字，是继承的意思，一般子类继承父类，可以复用父类的属性和方法</p>
+<p>implements: 可以理解成当前定义的类通过关键字implements声明自己使用一个或者多个接口。 接口可以是一个或多个</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Parent &#123;</span><br><span class="line">    sayHi(): string &#123;</span><br><span class="line">        return `sayHi to you!`</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Child extends Parent &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Child1 implements Parent &#123;</span><br><span class="line">    sayHi(): string &#123; // 在parent中定义的属性和方法， child1必须有</span><br><span class="line">        return &#x27;1&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>extends 是继承某个类, 继承之后可以使用父类的方法, 也可以重写父类的方法;<br>implements 是实现多个接口, 接口的方法一般为空的, 必须重写才能使用.</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>extends 是继承父类，只要那个类不是声明为final或者那个类定义为abstract的就能继承，<br>继承只能继承一个类，但implements可以实现多个接口，用逗号分开就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A extend B implements C,D,E &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>extends可以覆盖父类的属性和方法； implements，实现父类，子类不可以覆盖父类的方法或者变量。即使子类定义与父类相同的变量或者函数，也会被父类取代掉。</p>
+<h2 id="接口实现的注意点"><a href="#接口实现的注意点" class="headerlink" title="接口实现的注意点"></a>接口实现的注意点</h2><p>a.实现一个接口就是要实现该接口的所有的方法(抽象类除外)</p>
+<p>b.接口中的方法都是抽象的。  </p>
+<p>c.多个无关的类可以实现同一个接口，一个类可以实现多个无关的接口。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>需要实现，不可以修改implements<br>定义接口需要具体实现，或者可以被修改扩展性好，用extends</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/03/10/class-extends-and-implements-%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="cl0kfdngl00007twp0th85jem" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class-extends-and-implements/" rel="tag">class, extends and implements</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vs-extension-tree-view" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/10/vs-extension-tree-view/" class="article-date">
+  <time datetime="2022-03-10T02:20:13.000Z" itemprop="datePublished">2022-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/10/vs-extension-tree-view/">vs-extension: tree-view</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="新增custrom-view-containers"><a href="#新增custrom-view-containers" class="headerlink" title="新增custrom view containers"></a>新增custrom view containers</h2><h3 id="1-在package-json内部添加-contributes-views"><a href="#1-在package-json内部添加-contributes-views" class="headerlink" title="1- 在package.json内部添加 contributes.views"></a>1- 在package.json内部添加 contributes.views</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;views&quot;</span>: &#123; <span class="comment">// the view showed in sideBar</span></span><br><span class="line">        <span class="attr">&quot;custom-view&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;customViewId&quot;</span>,</span><br><span class="line">              <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;view title show &quot;</span>,</span><br><span class="line">              <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;media/transfer.svg&quot;</span>,</span><br><span class="line">              <span class="attr">&quot;contextualTitle&quot;</span>: <span class="string">&quot;custom view&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;viewsContainers&quot;</span>: &#123; <span class="comment">// when the view show</span></span><br><span class="line">        <span class="attr">&quot;activitybar&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;containerId&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;hover msg&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;img url&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加好上面的配置， 启动插件， 就会在active bar 看到一个图标，点击后会在sideBar看到配置的view<br>现在还是空白的。</p>
+<h3 id="2-给view提供数据-create-a-TreeDataProvider"><a href="#2-给view提供数据-create-a-TreeDataProvider" class="headerlink" title="2- 给view提供数据: create a TreeDataProvider"></a>2- 给view提供数据: create a TreeDataProvider</h3><p>一定会使用到的apis</p>
+<p>1- <code>getChildren(element?: T): ProviderResult&lt;T[]&gt;</code>: 获取指定element/root的子元素</p>
+<p>2- <code>getTreeItem(element: T): TreeItem | Thenable&lt;TreeItem&gt;</code>: 获取在视图中显示的元素的 UI（TreeItem)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">export default CustomViewProvider implements vscode.ThreeDataProvider&lt;TreeData&gt; &#123;</span><br><span class="line">    constructor(private workspaceRoot: string) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    getTreeItem(element: TreeData): vscode.TreeItem &#123;</span><br><span class="line">        // 获取展示数据的容器</span><br><span class="line">        return element;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getChildren(element: TreeData) Thenable&lt;TreeData[]&gt;  &#123;</span><br><span class="line">        // 获取展示数据</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class TreeData extends vscode.TreeItem &#123;</span><br><span class="line">    constructor(</span><br><span class="line">        public readonly collapsibleState: vscode.TreeItemCollapsibleState</span><br><span class="line">    ) &#123;</span><br><span class="line">        super(collapsibleState);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">````</span><br><span class="line"></span><br><span class="line">### 3- Registering the TreeDataProvider to your view</span><br><span class="line"></span><br><span class="line">有两种方法可以实现：</span><br><span class="line"></span><br><span class="line">1- ```vscode.window.registerThreeDataProvider```: 通过viewId 和上面的TreeDataProvider来注册</span><br><span class="line"></span><br><span class="line">Register the tree data provider by providing the registered view ID and above data provider.</span><br><span class="line"></span><br><span class="line">```react</span><br><span class="line">const rootPath = vscode.workspace.workspaceFolders &amp;&amp; vscode.workspace.workspaceFolders.length &gt; 0 &amp;&amp;</span><br><span class="line">  vscode.workspace.workspaceFolders[0].uri.fsPath : undefined</span><br><span class="line"></span><br><span class="line">vscode.window.registerThreeDataProvider(</span><br><span class="line">    &quot;customViewId&quot;,</span><br><span class="line">    new CustomViewProvider(rootPath)</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2- <code>vscode.window.createTreeView</code>:根据 viewId and data provider创建treeView</p>
+<p>Create the Tree View by providing the registered view ID and above data provider.<br>This will give access to the TreeView, which you can use for performing other view operations.<br>Use createTreeView, if you need the TreeView API.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vscode.window.createTreeView(&#x27;customViewId&#x27;, &#123;</span><br><span class="line">    treeDataProvider: new CustomViewProvider(rootPath)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新Tree-view-content-refresh"><a href="#更新Tree-view-content-refresh" class="headerlink" title="更新Tree view content(refresh)"></a>更新Tree view content(refresh)</h3><p>use <code>onDidChangeTreeData</code> event</p>
+<p><code>onDidChangeTreeData?: Event&lt;T | undefined | null | void&gt;</code></p>
+<p>Implement this if your tree data can change and you want to update the treeview.</p>
+<p>Add the following to your CustomViewProvider.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private _onDidChangeTreeData: vscode.EventEmitter&lt;Dependency | undefined | null | void&gt; = new vscode.EventEmitter&lt;Dependency | undefined | null | void&gt;();</span><br><span class="line">readonly onDidChangeTreeData: vscode.Event&lt;Dependency | undefined | null | void&gt; = this._onDidChangeTreeData.event;</span><br><span class="line"></span><br><span class="line">refresh(): void &#123;</span><br><span class="line">  this._onDidChangeTreeData.fire();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>We can add a command to call refresh.</p>
+<p>In the contributes section of your package.json, add:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;commands&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;customView.refreshEntry&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Refresh&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;icon&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;light&quot;</span>: <span class="string">&quot;resources/light/refresh.svg&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;dark&quot;</span>: <span class="string">&quot;resources/dark/refresh.svg&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="注册插件"><a href="#注册插件" class="headerlink" title="注册插件"></a>注册插件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import * as vscode from &#x27;vscode&#x27;;</span><br><span class="line">import &#123; CustomViewProvider &#125; from &#x27;./customViewProvider&#x27;;</span><br><span class="line"></span><br><span class="line">export function activate(context: vscode.ExtensionContext) &#123;</span><br><span class="line">  const rootPath =</span><br><span class="line">    vscode.workspace.workspaceFolders &amp;&amp; vscode.workspace.workspaceFolders.length &gt; 0</span><br><span class="line">      ? vscode.workspace.workspaceFolders[0].uri.fsPath</span><br><span class="line">      : undefined;</span><br><span class="line">  const customViewProvider = new CustomViewProvider(rootPath);</span><br><span class="line">  vscode.window.registerTreeDataProvider(&#x27;customViewId&#x27;, customViewProvider);</span><br><span class="line">  vscode.commands.registerCommand(&#x27;customView.refreshEntry&#x27;, () =&gt;</span><br><span class="line">    customViewProvider.refresh()</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="refresh-通过按钮来触发-在contributions里增加下面配置"><a href="#refresh-通过按钮来触发-在contributions里增加下面配置" class="headerlink" title="refresh 通过按钮来触发: 在contributions里增加下面配置"></a>refresh 通过按钮来触发: 在contributions里增加下面配置</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;menus&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;view/title&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;customView.refreshEntry&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;when&quot;</span>: <span class="string">&quot;view == customViewId&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="激活插件-在package-json注册激活事件"><a href="#激活插件-在package-json注册激活事件" class="headerlink" title="激活插件: 在package.json注册激活事件"></a>激活插件: 在package.json注册激活事件</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;activationEvents&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;onView:customViewId&quot;</span>,</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h2 id="View-Container"><a href="#View-Container" class="headerlink" title="View Container"></a>View Container</h2><p>view Container包含两部分： 活动栏或面板中显示的视图列表以及内置的视图容器<br>内置视图容器的示例是源代码管理和资源管理器。</p>
+<h3 id="register-View-Container-in-contributes-viewsContainers"><a href="#register-View-Container-in-contributes-viewsContainers" class="headerlink" title="register View Container in contributes.viewsContainers"></a>register View Container in contributes.viewsContainers</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;viewsContainers&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;activitybar&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;package-explorer&quot;</span>, <span class="comment">// The name of the new view container you&#x27;re creating.</span></span><br><span class="line">        <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Package Explorer&quot;</span>, <span class="comment">// The name that will show up at the top of the view container.</span></span><br><span class="line">        <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;media/dep.svg&quot;</span> <span class="comment">//  An image that will be displayed for the view container when in the Activity Bar.</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你也可以注册到panel下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;viewsContainers&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;panel&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;package-explorer&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Package Explorer&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;media/dep.svg&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Contributing-views-to-View-Containers"><a href="#Contributing-views-to-View-Containers" class="headerlink" title="Contributing views to View Containers"></a>Contributing views to View Containers</h3><p>可以把view挂载到view Containers</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;views&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;package-explorer&quot;</span>: [ <span class="comment">// key是view container id</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;nodeDependencies&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Node Dependencies&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;media/dep.svg&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;contextualTitle&quot;</span>: <span class="string">&quot;Package Explorer&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以设置view的可见性：<code>visibility: visible/collapsed/ hidden;</code> 仅在第一次使用此视图打开工作区时，VS Code 才会尊重此属性</p>
+<h2 id="View-Actions-视图交互"><a href="#View-Actions-视图交互" class="headerlink" title="View Actions: 视图交互"></a>View Actions: 视图交互</h2><p>通过在package.json中添加contributions<br>可以添加交互的位置，共三个：</p>
+<p>1- <code>view/title</code>: 主要操作添加配置<code>&quot;group&quot;: &quot;navigation&quot;</code>, 次要操作在<code>...</code>内<br>2- <code>view/item/context</code>:<br>Location to show actions for the tree item. Inline actions use “group”: “inline” and rest are secondary actions, which are in … menu.</p>
+<p><img src="%22../../public/css/images/vscode-view-action.png%22" alt="vscode-action"></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;commands&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;nodeDependencies.refreshEntry&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Refresh&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;light&quot;</span>: <span class="string">&quot;resources/light/refresh.svg&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;dark&quot;</span>: <span class="string">&quot;resources/dark/refresh.svg&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;nodeDependencies.addEntry&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Add&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;nodeDependencies.editEntry&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Edit&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;light&quot;</span>: <span class="string">&quot;resources/light/edit.svg&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;dark&quot;</span>: <span class="string">&quot;resources/dark/edit.svg&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;nodeDependencies.deleteEntry&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Delete&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;menus&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;view/title&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;nodeDependencies.refreshEntry&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;when&quot;</span>: <span class="string">&quot;view == nodeDependencies&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;nodeDependencies.addEntry&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;when&quot;</span>: <span class="string">&quot;view == nodeDependencies&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;view/item/context&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;nodeDependencies.editEntry&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;when&quot;</span>: <span class="string">&quot;view == nodeDependencies &amp;&amp; viewItem == dependency&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;inline&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;nodeDependencies.deleteEntry&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;when&quot;</span>: <span class="string">&quot;view == nodeDependencies &amp;&amp; viewItem == dependency&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/03/10/vs-extension-tree-view/" data-id="cl0kfdngn00017twp6dlr8vnq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vs-extension/" rel="tag">vs-extension</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vscode插件开发-webview" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-webview/" class="article-date">
+  <time datetime="2022-01-21T06:18:36.000Z" itemprop="datePublished">2022-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-webview/">vscode插件开发-webview</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-创建webview"><a href="#1-创建webview" class="headerlink" title="1- 创建webview"></a>1- 创建webview</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import * as vscode from &#x27;vscode&#x27;;</span><br><span class="line"></span><br><span class="line">function testWebview(context: vscode.ExtensionContext): void &#123;</span><br><span class="line">  context.subscriptions.push(</span><br><span class="line">    vscode.commands.registerCommand(&#x27;extension.demo.openWebview&#x27;, (uri) =&gt; &#123;</span><br><span class="line">      console.log(&#x27;uri&#x27;, uri);</span><br><span class="line">      const panel = vscode.window.createWebviewPanel(</span><br><span class="line">        &#x27;testWebview&#x27;,</span><br><span class="line">        &#x27;Webview test&#x27;,</span><br><span class="line">        vscode.ViewColumn.One,</span><br><span class="line">        &#123;</span><br><span class="line">          enableScripts: true,</span><br><span class="line">          retainContextWhenHidden: true,</span><br><span class="line">        &#125;,</span><br><span class="line">      );</span><br><span class="line">      panel.webview.html = `&lt;html&gt;&lt;body&gt;你好，我是webview&lt;/body&gt;&lt;/html&gt;`;</span><br><span class="line">    &#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default testWebview;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>声明命令</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;activationEvents&quot;</span>: [</span><br><span class="line">			<span class="string">&quot;onCommand:extension.demo.openWebview&quot;</span></span><br><span class="line">],</span><br><span class="line">	<span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">	<span class="attr">&quot;commands&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.demo.openWebview&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;title&quot;</span>: <span class="string">&quot;OPEN WEBVIEW&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	<span class="attr">&quot;menus&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;editor/context&quot;</span>: [</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.demo.openWebview&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">		],</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-加载本地资源"><a href="#2-加载本地资源" class="headerlink" title="2- 加载本地资源"></a>2- 加载本地资源</h1><p>出于安全考虑，Webview默认无法直接访问本地资源，它在一个孤立的上下文中运行，想要加载本地图片、js、css等必须通过特殊的<code>vscode-resource:</code>协议，网页里面<strong>所有的静态资源都要转换成这种格式，否则无法被正常加载</strong>。</p>
+<p><code>vscode-resource:</code>协议类似于<code>file:</code>协议，但它只允许访问特定的本地文件。和<code>file:</code>一样，<code>vscode-resource:</code>从磁盘加载绝对路径的资源。</p>
+<p>转换本地磁盘文件路径成webview 能打开的文件路径</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getExtensionFileVscodeResource: <span class="function"><span class="keyword">function</span>(<span class="params">context, relativePath</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> diskPath = vscode.Uri.file(path.join(context.extensionPath, relativePath));</span><br><span class="line">	<span class="keyword">return</span> diskPath.with(&#123; <span class="attr">scheme</span>: <span class="string">&#x27;vscode-resource&#x27;</span> &#125;).toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，<code>vscode-resource:</code>只能访问以下位置中的资源：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 扩展程序安装目录中的文件。</span><br><span class="line">- 用户当前活动的工作区内。</span><br><span class="line">- 当然，你还可以使用dataURI直接在Webview中嵌入资源，这种方式没有限制；</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-从文件加载HTML内容"><a href="#3-从文件加载HTML内容" class="headerlink" title="3- 从文件加载HTML内容"></a>3- 从文件加载HTML内容</h1><p>默认不支持从文件加载HTML，需要自己封装代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">getWebviewContent(</span><br><span class="line">  context: vscode.ExtensionContext,</span><br><span class="line">  <span class="attr">templatePath</span>: string,</span><br><span class="line">): string &#123;</span><br><span class="line">  <span class="keyword">const</span> resourcePath = path.join(context.extensionPath, templatePath);</span><br><span class="line">  <span class="keyword">const</span> dirPath = path.dirname(resourcePath);</span><br><span class="line">  <span class="keyword">let</span> html = fs.readFileSync(resourcePath, <span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">  <span class="comment">// 处理html内部的资源路径成可以被vscode webview 访问的路径</span></span><br><span class="line">  html = html.replace(</span><br><span class="line">    <span class="regexp">/(&lt;link.+?href=&quot;|&lt;script.+?src=&quot;|&lt;img.+?src=&quot;)(.+?)&quot;/g</span>,</span><br><span class="line">    <span class="function">(<span class="params">m, $<span class="number">1</span>, $<span class="number">2</span></span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> $<span class="number">1</span> + vscode.Uri.file(path.resolve(dirPath, $<span class="number">2</span>)).with(</span><br><span class="line">        &#123; <span class="attr">scheme</span>: <span class="string">&#x27;vscode-resource&#x27;</span> &#125;).toString();</span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="keyword">return</span> html;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-消息通信"><a href="#4-消息通信" class="headerlink" title="4- 消息通信"></a>4- 消息通信</h1><p>重头戏来了，<code>Webview</code>和普通网页非常类似，不能直接调用任何<code>VSCode</code>API，但是，它唯一特别之处就在于多了一个名叫<code>acquireVsCodeApi</code>的方法，执行这个方法会返回一个超级阉割版的<code>vscode</code>对象，这个对象里面有且仅有如下3个可以和插件通信的API：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- getState</span><br><span class="line">- postMessage</span><br><span class="line">- setState</span><br></pre></td></tr></table></figure>
+
+<p>插件给<code>Webview</code>发送消息: 支持发送任意可以被<code>JSON</code>化的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">panel.webview.postMessage(&#123;text: &quot;hello&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>webview 端接收</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&#x27;message&#x27;, event =&gt; &#123;</span><br><span class="line">	const message = event.data;</span><br><span class="line">	console.log(&#x27;Webview接收到的消息：&#x27;, message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Webview</code>主动发送消息给插件：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vscode.postMessage(&#123;text: &#x27;你好，我是Webview啊！&#x27;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>插件接收：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">panel.webview.onDidReceiveMessage(message =&gt; &#123;</span><br><span class="line">	console.log(&#x27;插件收到的消息：&#x27;, message);</span><br><span class="line">&#125;, undefined, context.subscriptions);</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-封装通信"><a href="#5-封装通信" class="headerlink" title="5- 封装通信"></a>5- 封装通信</h1><h1 id="6-主题适配"><a href="#6-主题适配" class="headerlink" title="6- 主题适配"></a>6- 主题适配</h1><p><code>Webview</code>可以根据<code>VS Code</code>的当前主题更改其外观，原理是body上面添加当前主题名称，主要有以下三种：</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vscode-light - 浅色主题；</span><br><span class="line">vscode-dark -深色主题；</span><br><span class="line">vscode-high-contrast - 高对比度主题;</span><br></pre></td></tr></table></figure>
+
+<p>可以通过自己写样式来适配不同主题：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 浅色主题 */</span></span><br><span class="line"><span class="selector-class">.body</span><span class="selector-class">.vscode-light</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: white;</span><br><span class="line">	<span class="attribute">color</span>: black;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 深色主题 */</span></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.vscode-dark</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#252526</span>;</span><br><span class="line">	<span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 高对比度主题 */</span></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.vscode-high-contrast</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: white;</span><br><span class="line">	<span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="7-生命周期"><a href="#7-生命周期" class="headerlink" title="7- 生命周期"></a>7- 生命周期</h1><p><code>webview</code>由创建它的扩展程序所有，返回的<code>panel</code>对象你必须自己保存，如果你的扩展程序丢失了这个引用，那么将无法再次重新访问该<code>webview</code>，即使Web视图继续显示在<code>vscode</code>中。</p>
+<p>用户也可以随时关闭<code>webview</code>面板。当用户关闭webview面板时，webview本身将被销毁，此时不能再使用panel引用，否则将会出现异常，可以通过监听<code>onDidDispose</code>事件在这里面做一些销毁操作。</p>
+<p>可以通过<code>panel.dispose()</code>方法主动关闭webview。</p>
+<h1 id="8-状态保持"><a href="#8-状态保持" class="headerlink" title="8- 状态保持"></a>8- 状态保持</h1><p>当webview移动到后台又再次显示时，webview中的任何状态都将丢失。</p>
+<p>解决此问题的最佳方法是使你的webview无状态，通过消息传递来保存webview的状态。</p>
+<h2 id="8-1-state"><a href="#8-1-state" class="headerlink" title="8.1- state"></a>8.1- state</h2><p>在webview的js中我们可以使用<code>vscode.getState()</code>和<code>vscode.setState()</code>方法来保存和恢复JSON可序列化状态对象。当webview被隐藏时，即使webview内容本身被破坏，这些状态仍然会保存。当然了，当webview被销毁时，状态将被销毁。</p>
+<h2 id="8-2-序列化"><a href="#8-2-序列化" class="headerlink" title="8.2 序列化"></a>8.2 序列化</h2><p>通过注册<code>WebviewPanelSerializer</code>可以实现在<code>VScode</code>重启后自动恢复你的<code>webview</code>，当然，序列化其实也是建立在<code>getState</code>和<code>setState</code>之上的。</p>
+<p>注册方法：<code>vscode.window.registerWebviewPanelSerializer</code></p>
+<h2 id="8-3-retainContextWhenHidden"><a href="#8-3-retainContextWhenHidden" class="headerlink" title="8.3- retainContextWhenHidden"></a>8.3- retainContextWhenHidden</h2><p>对于具有非常复杂的UI或状态且无法快速保存和恢复的<code>webview</code>，我们可以直接使用<code>retainContextWhenHidden</code>选项。设置<code>retainContextWhenHidden: true</code>后即使webview被隐藏到后台其状态也不会丢失。</p>
+<p>尽管<code>retainContextWhenHidden</code>很有吸引力，但它需要很高的内存开销，一般建议在实在没办法的时候才启用。<br><code>getState</code>和<code>setState</code>是持久化的首选方式，因为它们的性能开销要比<code>retainContextWhenHidden</code>低得多。</p>
+<h1 id="9-API"><a href="#9-API" class="headerlink" title="9- API"></a>9- API</h1><table>
+<thead>
+<tr>
+<th align="left">Guide on VS Code Website</th>
+<th align="left">API &amp; Contribution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/command">Command</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#commands">commands</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/color-theme">Color Theme</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.themes">contributes.themes</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/file-icon-theme">File Icon Theme</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.iconThemes">contributes.iconThemes</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/product-icon-theme">Product Icon Theme</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.productIconThemes">contributes.productIconThemes</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/tree-view">Tree View</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.createTreeView">window.createTreeView</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.registerTreeDataProvider">window.registerTreeDataProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TreeView">TreeView</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TreeDataProvider">TreeDataProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.views">contributes.views</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers">contributes.viewsContainers</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/webview">Webview</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.createWebviewPanel">window.createWebviewPanel</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.registerWebviewPanelSerializer">window.registerWebviewPanelSerializer</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/custom-editors">Custom Editors</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.registerCustomEditorProvider">window.registerCustomEditorProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#CustomTextEditorProvider">CustomTextEditorProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.customEditors">contributes.customEditors</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/virtual-documents">Virtual Documents</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.registerTextDocumentContentProvider">workspace.registerTextDocumentContentProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#commands.registerCommand">commands.registerCommand</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#window.showInputBox">window.showInputBox</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/virtual-workspaces">Virtual Workspaces</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.fs">workspace.fs</a> capabilities.virtualWorkspaces</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/workspace-trust">Workspace Trust</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.isTrusted">workspace.isTrusted</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.onDidGrantWorkspaceTrust">workspace.onDidGrantWorkspaceTrust</a> capabilities.untrustedWorkspaces</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/task-provider">Task Provider</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#tasks.registerTaskProvider">tasks.registerTaskProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#Task">Task</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#ShellExecution">ShellExecution</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.taskDefinitions">contributes.taskDefinitions</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/scm-provider">Source Control</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#workspace.workspaceFolders">workspace.workspaceFolders</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#SourceControl">SourceControl</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#SourceControlResourceGroup">SourceControlResourceGroup</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#scm.createSourceControl">scm.createSourceControl</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TextDocumentContentProvider">TextDocumentContentProvider</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.menus">contributes.menus</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/debugger-extension">Debugger Extension</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.breakpoints">contributes.breakpoints</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/contribution-points#contributes.debuggers">contributes.debuggers</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#debug">debug</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/markdown-extension">Markdown Extension</a></td>
+<td align="left">markdown.previewStyles markdown.markdownItPlugins markdown.previewScripts</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/testing">Test Extension</a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TestController">TestController</a> <a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/references/vscode-api#TestItem">TestItem</a></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://code.visualstudio.com/api/extension-guides/custom-data-extension">Custom Data Extension</a></td>
+<td align="left">contributes.html.customData contributes.css.customData</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-webview/" data-id="ckys47naz0001c9wo23sp2k25" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode-extensions-webview/" rel="tag">vscode, extensions, webview</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vscode插件打包、发布、升级" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E6%89%93%E5%8C%85%E3%80%81%E5%8F%91%E5%B8%83%E3%80%81%E5%8D%87%E7%BA%A7/" class="article-date">
+  <time datetime="2022-01-21T04:05:49.000Z" itemprop="datePublished">2022-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E6%89%93%E5%8C%85%E3%80%81%E5%8F%91%E5%B8%83%E3%80%81%E5%8D%87%E7%BA%A7/">vscode插件打包、发布、升级</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-本地打包"><a href="#1-本地打包" class="headerlink" title="1- 本地打包"></a>1- 本地打包</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i vsce -g</span><br><span class="line"><span class="comment"># 打包成vsix文件</span></span><br><span class="line">vsce package  </span><br></pre></td></tr></table></figure>
+
+<p>打包的时候需要设置repository，如果没有设置<code>repository</code>会有提示，所以最好设置一下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E6%89%93%E5%8C%85%E3%80%81%E5%8F%91%E5%B8%83%E3%80%81%E5%8D%87%E7%BA%A7/" data-id="ckys47nb10005c9woho5bbb4e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode-extensions-publish-package/" rel="tag">vscode, extensions, publish, package</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vscode插件开发3-跳转、补全、提示" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/18/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%913-%E8%B7%B3%E8%BD%AC%E3%80%81%E8%A1%A5%E5%85%A8%E3%80%81%E6%8F%90%E7%A4%BA/" class="article-date">
+  <time datetime="2022-01-18T07:17:55.000Z" itemprop="datePublished">2022-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/18/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%913-%E8%B7%B3%E8%BD%AC%E3%80%81%E8%A1%A5%E5%85%A8%E3%80%81%E6%8F%90%E7%A4%BA/">vscode插件开发3-跳转、补全、提示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-跳转到定义"><a href="#1-跳转到定义" class="headerlink" title="1- 跳转到定义"></a>1- 跳转到定义</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vscode.language.registerDefinitionProvider</span><br><span class="line">new vscode.location()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;activationEvents&quot;: [</span><br><span class="line">	&quot;onLanguage: json&quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><code>new vscode.Location</code>接收2个参数，第一个是要跳转到文件的路径，第二个是跳转之后光标所在位置，接收<code>Range</code>或者<code>Position</code>对象，<code>Position</code>对象的初始化接收2个参数，行<code>row</code>和列<code>col</code>。</p>
+<h1 id="2-高亮显示范围"><a href="#2-高亮显示范围" class="headerlink" title="2- 高亮显示范围"></a>2- 高亮显示范围</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vscode.languages.registerCompletionItemProvider</span><br><span class="line"></span><br><span class="line">// 参数</span><br><span class="line">- 第一个是要关联的文件类型</span><br><span class="line">- 第二个是一个对象，里面必须包含provideCompletionItems 和 resolveCompletionItem 2个方法</span><br><span class="line">- 第三个是一个可选的触发提示的字符列表</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-悬停提示"><a href="#3-悬停提示" class="headerlink" title="3- 悬停提示"></a>3- 悬停提示</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vscode.languages.registerHoverProvider</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/01/18/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%913-%E8%B7%B3%E8%BD%AC%E3%80%81%E8%A1%A5%E5%85%A8%E3%80%81%E6%8F%90%E7%A4%BA/" data-id="ckys47nb00002c9wo3lqu1f43" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viscose-extension-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%AE%9A%E4%B9%89-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E6%82%AC%E5%81%9C%E6%8F%90%E7%A4%BA/" rel="tag">viscose, extension, 跳转到定义, 自动补全, 悬停提示</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vscode插件开发2-command+menu+keybindings" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/17/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%912-command+menu+keybindings/" class="article-date">
+  <time datetime="2022-01-17T11:27:00.000Z" itemprop="datePublished">2022-01-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/17/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%912-command+menu+keybindings/">vscode插件开发2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-命令"><a href="#1-命令" class="headerlink" title="1 命令"></a>1 命令</h1><p>注册命令</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// tension.ts</span></span><br><span class="line"><span class="keyword">const</span> disposable = vscode.commands.registerCommand(<span class="string">&#x27;extension.sayHello&#x27;</span>, <span class="function">()=&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br><span class="line">context.subscriptions.push(disposable)</span><br></pre></td></tr></table></figure>
+
+<p>声明命令</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="string">&quot;commands&quot;</span>: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.sayHello&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Hello World&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>Note:  所有注册类API执行后都会返回一个disposable对象，必须放到<code>context.subscriptions</code>中去</p>
+<h2 id="1-1-回调函数参数"><a href="#1-1-回调函数参数" class="headerlink" title="1.1 回调函数参数"></a>1.1 回调函数参数</h2><p>可选参数-uri</p>
+<ul>
+<li>资源管理器： 选中的资源（文件/文件夹）路径</li>
+<li>文件编辑器： 文件路径</li>
+<li>快捷键： 空</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let disposable1 = vscode.commands.registerCommand(&#x27;extension.demo.getCurrentFilePath&#x27;, (uri) =&gt; &#123;</span><br><span class="line">	vscode.window.showInformationMessage(`current file/folder&#x27;s path is: $&#123;uri? uri.path : &#x27;empty&#x27;&#125;`);</span><br><span class="line">&#125;);</span><br><span class="line">context.subscriptions.push(disposable1);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明命令</span></span><br><span class="line"><span class="string">&quot;activationEvents&quot;</span>: [</span><br><span class="line">			<span class="string">&quot;onCommand:extension.demo.getCurrentFilePath&quot;</span></span><br><span class="line">],	</span><br><span class="line"><span class="comment">// 命令的具体信息</span></span><br><span class="line"><span class="string">&quot;commands&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.demo.getCurrentFilePath&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;title&quot;</span>: <span class="string">&quot;get current file/folder path&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">],</span><br><span class="line"><span class="comment">// 命令触发时机-- 编辑器获焦后邮件下拉框 &amp; 文件系统右键下拉框</span></span><br><span class="line"><span class="string">&quot;menus&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;editor/context&quot;</span>: [</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">&quot;when&quot;</span>: <span class="string">&quot;eidtorFocus&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.demo.getCurrentFilePath&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation&quot;</span></span><br><span class="line">			&#125;</span><br><span class="line">		],</span><br><span class="line">		<span class="attr">&quot;explorer/context&quot;</span>: [</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.demo.getCurrentFilePath&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation&quot;</span></span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-编辑器命令"><a href="#1-2-编辑器命令" class="headerlink" title="1.2 编辑器命令"></a>1.2 编辑器命令</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vscode.commands.registerTextEditorCommand(<span class="string">&#x27;commandId&#x27;</span>, <span class="function">(<span class="params">textEditor, edit</span>) =&gt;</span> &#123;</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="string">&quot;activationEvents&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;onCommand:extension.testEditorCommand&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;commands&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;extension.testEditorCommand&quot;</span>,</span><br><span class="line">        <span class="string">&quot;title&quot;</span>: <span class="string">&quot;TEST EDITOR COMMAND&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>– 按照上述没有看到该命令被激活？？？</p>
+<p>激活： 只有在编辑器被激活时调用才生效， 参数textEditor可以拿到活动编辑器</p>
+<h2 id="1-3-执行命令"><a href="#1-3-执行命令" class="headerlink" title="1.3 执行命令"></a>1.3 执行命令</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vscode.commands.executeCommand(<span class="string">&quot;命令&quot;</span>， params1, ...).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;<span class="comment">// ...&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4-获取所有命令"><a href="#1-4-获取所有命令" class="headerlink" title="1.4 获取所有命令"></a>1.4 获取所有命令</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vscode.commands.getCommands().then(<span class="function"><span class="params">allCommands</span> =&gt;</span> &#123;<span class="comment">//...&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-菜单"><a href="#2-菜单" class="headerlink" title="2 菜单"></a>2 菜单</h1><p>完整的菜单配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;menus&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;editor/title&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;when&quot;</span>: <span class="string">&quot;editorFocus&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.sayHello&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;alt&quot;</span>: <span class="string">&quot;extension.sayHello&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// editor/title是key值，定义这个菜单出现在哪里；</span></span><br><span class="line"><span class="comment">// when控制菜单何时出现；</span></span><br><span class="line"><span class="comment">// command定义菜单被点击后要执行什么操作；</span></span><br><span class="line"><span class="comment">// alt定义备用命令，按住alt键打开菜单时将执行对应命令；</span></span><br><span class="line"><span class="comment">// group定义菜单分组；</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-1-出现的位置"><a href="#2-1-出现的位置" class="headerlink" title="2.1 出现的位置"></a>2.1 出现的位置</h2><p>目前插件可以给以下场景配置自定义菜单</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">资源管理器上下文菜单 - explorer/context</span><br><span class="line">编辑器上下文菜单 - editor/context</span><br><span class="line">编辑标题菜单栏 - editor/title</span><br><span class="line">编辑器标题上下文菜单 - editor/title/context</span><br><span class="line">调试callstack视图上下文菜单 - debug/callstack/context</span><br><span class="line">SCM标题菜单 -scm/title</span><br><span class="line">SCM资源组菜单 -scm/resourceGroup/context</span><br><span class="line">SCM资源菜单 -scm/resource/context</span><br><span class="line">SCM更改标题菜单 -scm/change/title</span><br><span class="line">左侧视图标题菜单 -view/title</span><br><span class="line">视图项菜单 -view/item/context</span><br><span class="line">控制命令是否显示在命令选项板中 - commandPalette</span><br></pre></td></tr></table></figure>
+
+<p>最常见的是<code>explorer/context</code>和<code>editor/context</code></p>
+<h2 id="2-2-when"><a href="#2-2-when" class="headerlink" title="2.2 when"></a>2.2 when</h2><p>通过when语句，vs code可以很好的控制什么时候显示菜单项</p>
+<p>when的常用语法</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resourceLangId == javascript：当编辑的文件是js文件时；</span><br><span class="line">resourceFilename == test.js：当当前打开文件名是test.js时；</span><br><span class="line">isLinux、isMac、isWindows：判断当前操作系统；</span><br><span class="line">editorFocus：编辑器具有焦点时；</span><br><span class="line">editorHasSelection：编辑器中有文本被选中时；</span><br><span class="line">view == someViewId：当当前视图ID等于someViewId时；</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>多个条件可以通过与或非进行组合，例如：<code>editorFocus &amp;&amp; isWindows &amp;&amp; resourceLangId == javascript</code>。</p>
+<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/getstarted/keybindings#_when-clause-contexts">官方文档-when</a></p>
+<h2 id="2-3-alt"><a href="#2-3-alt" class="headerlink" title="2.3 alt"></a>2.3 alt</h2><p>表示没有按下alt键时，点击右键菜单执行的是<code>command</code>对应的命令，而按下了alt键后执行的是alt对应的命令</p>
+<h2 id="2-4-group"><a href="#2-4-group" class="headerlink" title="2.4 group"></a>2.4 group</h2><h3 id="2-4-1-组间排序"><a href="#2-4-1-组间排序" class="headerlink" title="2.4.1 组间排序"></a>2.4.1 组间排序</h3><p>控制菜单的分组和排序。不同的菜单拥有不同的默认分组。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">navigation- 放在这个组的永远排在最前面；</span><br><span class="line"><span class="number">1</span>_modification - 更改组；</span><br><span class="line"><span class="number">9</span>_cutcopypaste - 编辑组</span><br><span class="line">z_commands - 最后一个默认组，其中包含用于打开命令选项板的条目。</span><br></pre></td></tr></table></figure>
+
+<p>除了<code>navigation</code>是强制放在最前面之外，其它分组都是按照0-9、a-z的顺序排列的</p>
+<p><code>explorer/context</code>有这些默认组：</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">navigation - 放在这个组的永远排在最前面；</span><br><span class="line"><span class="number">2</span>_workspace - 与工作空间操作相关的命令。</span><br><span class="line"><span class="number">3</span>_compare - 与差异编辑器中的文件比较相关的命令。</span><br><span class="line"><span class="number">4</span>_search - 与在搜索视图中搜索相关的命令。</span><br><span class="line"><span class="number">5</span>_cutcopypaste - 与剪切，复制和粘贴文件相关的命令。</span><br><span class="line"><span class="number">7</span>_modification - 与修改文件相关的命令。</span><br></pre></td></tr></table></figure>
+
+<p>在<code>编辑器选项卡上下文菜单</code>有这些默认组：</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>_close - 与关闭编辑器相关的命令。</span><br><span class="line"><span class="number">3</span>_preview - 与固定编辑器相关的命令。</span><br></pre></td></tr></table></figure>
+
+<p>在<code>editor/title</code>有这些默认组：</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>_diff - 与使用差异编辑器相关的命令。</span><br><span class="line"><span class="number">3</span>_open - 与打开编辑器相关的命令。</span><br><span class="line"><span class="number">5</span>_close - 与关闭编辑器相关的命令</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-2-组内排序"><a href="#2-4-2-组内排序" class="headerlink" title="2.4.2 组内排序"></a>2.4.2 组内排序</h3><p>默认同一个组的顺序取决于菜单名称，如果想自定义排序的话可以再组后面通过<code>@&lt;number&gt;</code>的方式来自定义顺序，例如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;editor/context&quot;</span>: [</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attr">&quot;when&quot;</span>: <span class="string">&quot;editorFocus&quot;</span>,</span><br><span class="line">		<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.sayHello&quot;</span>,</span><br><span class="line">		<span class="comment">// 强制放在navigation组的第2个</span></span><br><span class="line">		<span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation@2&quot;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attr">&quot;when&quot;</span>: <span class="string">&quot;editorFocus&quot;</span>,</span><br><span class="line">		<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.demo.getCurrentFilePath&quot;</span>,</span><br><span class="line">		<span class="comment">// 强制放在navigation组的第1个</span></span><br><span class="line">		<span class="attr">&quot;group&quot;</span>: <span class="string">&quot;navigation@1&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-快捷键"><a href="#3-快捷键" class="headerlink" title="3 快捷键"></a>3 快捷键</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">	<span class="attr">&quot;keybindings&quot;</span>: [&#123;</span><br><span class="line">		<span class="comment">// 指定快捷键执行的操作</span></span><br><span class="line">		<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.sayHello&quot;</span>,</span><br><span class="line">		<span class="comment">// windows下快捷键</span></span><br><span class="line">		<span class="attr">&quot;key&quot;</span>: <span class="string">&quot;ctrl+f10&quot;</span>,</span><br><span class="line">		<span class="comment">// mac下快捷键</span></span><br><span class="line">		<span class="attr">&quot;mac&quot;</span>: <span class="string">&quot;cmd+f10&quot;</span>,</span><br><span class="line">		<span class="comment">// 快捷键何时生效</span></span><br><span class="line">		<span class="attr">&quot;when&quot;</span>: <span class="string">&quot;editorTextFocus&quot;</span></span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/getstarted/keybindings">官方文档–快捷键绑定</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/01/17/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%912-command+menu+keybindings/" data-id="ckys47nb10004c9wocout3lti" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vscode-plugin-自定义vscode插件1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/14/vscode-plugin-%E8%87%AA%E5%AE%9A%E4%B9%89vscode%E6%8F%92%E4%BB%B61/" class="article-date">
+  <time datetime="2022-01-14T08:24:00.000Z" itemprop="datePublished">2022-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/14/vscode-plugin-%E8%87%AA%E5%AE%9A%E4%B9%89vscode%E6%8F%92%E4%BB%B61/">自定义vscode插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="VScode组成结构"><a href="#VScode组成结构" class="headerlink" title="VScode组成结构"></a>VScode组成结构</h1><p>VSCode 是基于 Electron 构建的，主要由三部分构成：</p>
+<ul>
+<li><p>Electron: UI</p>
+</li>
+<li><ul>
+<li>Monaco Editor</li>
+<li>Extension Host</li>
+</ul>
+</li>
+<li><p>Language Server Protocol &amp; Debug Adapter Protocol</p>
+</li>
+</ul>
+<h1 id="插件生命周期"><a href="#插件生命周期" class="headerlink" title="插件生命周期"></a>插件生命周期</h1><p>从生命周期上来看，插件编写有三大个部分：</p>
+<ul>
+<li><strong>Activation Event</strong>：设置插件激活的时机。位于 package.json 中。</li>
+<li><strong>Contribution Point</strong>：设置在 VSCode 中哪些地方添加新功能，也就是这个插件增强了哪些功能。位于 package.json 中。</li>
+<li><strong>Register</strong>：在 <code>extension.ts</code> 中给要写的功能用 <code>vscode.commands.register...</code> 给 <code>Activation Event</code> 或 <code>Contribution Point</code> 中配置的事件绑定方法或者设置监听器。位于入口文件（默认是 <code>extension.ts</code>）的 <code>activate()</code> 函数中。</li>
+</ul>
+<h3 id="packages-json"><a href="#packages-json" class="headerlink" title="packages.json"></a>packages.json</h3><p>package 中和插件有关的主要内容是如下几个项目，其中 main 是插件代码的入口文件。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;activationEvents&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;onCommand:extension.helloWorld&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;main&quot;</span>: <span class="string">&quot;./out/extension.js&quot;</span>,</span><br><span class="line">    <span class="string">&quot;contributes&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;commands&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.helloWorld&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Hello World&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;extension.helloVscode&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Hello vscode&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>activationEvents: 配置插件什么时候被激活， 目前支持下面8种配置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">onLanguage:<span class="variable">$&#123;language&#125;</span></span><br><span class="line">onCommand:<span class="variable">$&#123;command&#125;</span></span><br><span class="line">onDebug</span><br><span class="line">workspaceContains:<span class="variable">$&#123;toplevelfilename&#125;</span></span><br><span class="line">onFileSystem:<span class="variable">$&#123;scheme&#125;</span></span><br><span class="line">onView:<span class="variable">$&#123;viewId&#125;</span></span><br><span class="line">onUri</span><br><span class="line">*</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>contributes</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">configuration：设置</span><br><span class="line">commands：命令</span><br><span class="line">menus：菜单</span><br><span class="line">keybindings：快捷键绑定</span><br><span class="line">languages：新语言支持</span><br><span class="line">debuggers：调试</span><br><span class="line">breakpoints：断点</span><br><span class="line">grammars</span><br><span class="line">themes：主题</span><br><span class="line">snippets：代码片段</span><br><span class="line">jsonValidation：自定义JSON校验</span><br><span class="line">views：左侧侧边栏视图</span><br><span class="line">viewsContainers：自定义activitybar</span><br><span class="line">problemMatchers</span><br><span class="line">problemPatterns</span><br><span class="line">taskDefinitions</span><br><span class="line">colors</span><br></pre></td></tr></table></figure>
+
+<h3 id="viscode插件脚手架"><a href="#viscode插件脚手架" class="headerlink" title="viscode插件脚手架"></a>viscode插件脚手架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yo generator-code</span><br><span class="line">yo code</span><br><span class="line"><span class="comment"># ? What type of extension do you want to create? New Extension (TypeScript)</span></span><br><span class="line"><span class="comment"># ? What&#x27;s the name of your extension? HelloWorld</span></span><br><span class="line"><span class="comment">### Press &lt;Enter&gt; to choose default for all options below ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ? What&#x27;s the identifier of your extension? helloworld</span></span><br><span class="line"><span class="comment"># ? What&#x27;s the description of your extension? LEAVE BLANK</span></span><br><span class="line"><span class="comment"># ? Initialize a git repository? Yes</span></span><br><span class="line"><span class="comment"># ? Bundle the source code with webpack? No</span></span><br><span class="line"><span class="comment"># ? Which package manager to use? npm</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ? Do you want to open the new folder with Visual Studio Code? Open with `code`</span></span><br></pre></td></tr></table></figure>
+
+<p>生成插件目录如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// tree -I <span class="string">&quot;node_modules&quot;</span></span><br><span class="line">.</span><br><span class="line">├── CHANGELOG.md</span><br><span class="line">├── README.md</span><br><span class="line">├── out</span><br><span class="line">│   ├── extension.js</span><br><span class="line">│   ├── extension.js.map</span><br><span class="line">│   └── <span class="built_in">test</span></span><br><span class="line">│       ├── runTest.js</span><br><span class="line">│       ├── runTest.js.map</span><br><span class="line">│       └── suite</span><br><span class="line">│           ├── extension.test.js</span><br><span class="line">│           ├── extension.test.js.map</span><br><span class="line">│           ├── index.js</span><br><span class="line">│           └── index.js.map</span><br><span class="line">├── package-lock.json</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   ├── extension.ts</span><br><span class="line">│   └── <span class="built_in">test</span></span><br><span class="line">│       ├── runTest.ts</span><br><span class="line">│       └── suite</span><br><span class="line">│           ├── extension.test.ts</span><br><span class="line">│           └── index.ts</span><br><span class="line">├── tsconfig.json</span><br><span class="line">└── vsc-extension-quickstart.md</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://summeruniq.github.io/2022/01/14/vscode-plugin-%E8%87%AA%E5%AE%9A%E4%B9%89vscode%E6%8F%92%E4%BB%B61/" data-id="ckys47naw0000c9woat5s9pzd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-搭建个人博客-git-and-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/01/10/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-git-and-hexo/" class="article-date">
@@ -149,7 +743,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://summeruniq.github.io/2022/01/10/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-git-and-hexo/" data-id="cky8f96vw0000f6wodalhhbsk" class="article-share-link">Share</a>
+      <a data-url="https://summeruniq.github.io/2022/01/10/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-git-and-hexo/" data-id="ckys47nb20006c9wo3v5n75z6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-hexo/" rel="tag">git, hexo</a></li></ul>
@@ -174,7 +768,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-hexo/" rel="tag">git, hexo</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RESTful-%E6%9E%B6%E6%9E%84/" rel="tag">RESTful, 架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class-extends-and-implements/" rel="tag">class, extends and implements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-hexo/" rel="tag">git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viscose-extension-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%AE%9A%E4%B9%89-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E6%82%AC%E5%81%9C%E6%8F%90%E7%A4%BA/" rel="tag">viscose, extension, 跳转到定义, 自动补全, 悬停提示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-extension/" rel="tag">vs-extension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode-extensions-publish-package/" rel="tag">vscode, extensions, publish, package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode-extensions-webview/" rel="tag">vscode, extensions, webview</a></li></ul>
     </div>
   </div>
 
@@ -184,7 +778,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/git-hexo/" style="font-size: 10px;">git, hexo</a>
+      <a href="/tags/RESTful-%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">RESTful, 架构</a> <a href="/tags/class-extends-and-implements/" style="font-size: 10px;">class, extends and implements</a> <a href="/tags/git-hexo/" style="font-size: 10px;">git, hexo</a> <a href="/tags/viscose-extension-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%AE%9A%E4%B9%89-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E6%82%AC%E5%81%9C%E6%8F%90%E7%A4%BA/" style="font-size: 10px;">viscose, extension, 跳转到定义, 自动补全, 悬停提示</a> <a href="/tags/vs-extension/" style="font-size: 10px;">vs-extension</a> <a href="/tags/vscode-extensions-publish-package/" style="font-size: 10px;">vscode, extensions, publish, package</a> <a href="/tags/vscode-extensions-webview/" style="font-size: 10px;">vscode, extensions, webview</a>
     </div>
   </div>
 
@@ -193,7 +787,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
     </div>
   </div>
 
@@ -206,7 +800,23 @@
       <ul>
         
           <li>
-            <a href="/2022/01/10/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-git-and-hexo/">搭建个人博客-git and hexo</a>
+            <a href="/2022/03/23/RESTful-%E6%9E%B6%E6%9E%84/">RESTful 架构</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/class-extends-and-implements-%E7%9A%84%E5%8C%BA%E5%88%AB/">class extends and implements 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/vs-extension-tree-view/">vs-extension: tree-view</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-webview/">vscode插件开发-webview</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/21/vscode%E6%8F%92%E4%BB%B6%E6%89%93%E5%8C%85%E3%80%81%E5%8F%91%E5%B8%83%E3%80%81%E5%8D%87%E7%BA%A7/">vscode插件打包、发布、升级</a>
           </li>
         
       </ul>
